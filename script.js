@@ -3,6 +3,10 @@ const botaoCriar = document.getElementById('criar-tarefa');
 const textoTarefa = document.getElementById('texto-tarefa');
 const itemLista = document.getElementsByClassName('item-tarefa');
 const botaoApagaTudo = document.getElementById('apaga-tudo');
+const botaoApagaFinalizados = document.getElementById('remover-finalizados');
+const botaoSalvar = document.getElementById('salvar-tarefas');
+const lista = listaTarefas.childNodes;
+const botaoApagaSelecionado = document.getElementById('remover-selecionado');
 
 // Requisito 7 e 8: Ajuda obtida com o Guilherme Azevedo
 function selecionaTarefa(event) {
@@ -39,8 +43,9 @@ function criaTarefa() {
 
 botaoCriar.addEventListener('click', criaTarefa);
 
+// Requisito 10
 function apagaLista() {
-  for (let i = listaTarefas.childNodes.length; i > 0; i -= 1) {
+  for (let i = lista.length; i > 0; i -= 1) {
     if (listaTarefas.childNodes) {
       listaTarefas.removeChild(listaTarefas.firstChild);
     }
@@ -48,3 +53,28 @@ function apagaLista() {
 }
 
 botaoApagaTudo.addEventListener('click', apagaLista);
+
+// Requisito 11
+function apagaCompletos() {
+  const feitos = document.querySelectorAll('.completed');
+  for (let i = 0; i < feitos.length; i += 1) {
+    feitos[i].parentNode.removeChild(feitos[i]);
+  }
+}
+
+botaoApagaFinalizados.addEventListener('click', apagaCompletos);
+
+// Requisito 12
+function salvaLista() {
+  sessionStorage.setItem(itemLista, itemLista.innerText);
+}
+
+botaoSalvar.addEventListener('click', salvaLista);
+
+// Reqisito 14
+function apagaSelecionado() {
+  const selecionado = document.querySelector('.selecionado');
+  selecionado.parentNode.removeChild(selecionado);
+}
+
+botaoApagaSelecionado.addEventListener('click', apagaSelecionado);
