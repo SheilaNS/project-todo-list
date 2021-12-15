@@ -7,6 +7,8 @@ const botaoApagaFinalizados = document.getElementById('remover-finalizados');
 const botaoSalvar = document.getElementById('salvar-tarefas');
 const lista = listaTarefas.childNodes;
 const botaoApagaSelecionado = document.getElementById('remover-selecionado');
+const botaoCima = document.getElementById('mover-cima');
+const botaoBaixo = document.getElementById('mover-baixo');
 
 // Requisito 7 e 8: Ajuda obtida com o Guilherme Azevedo
 function selecionaTarefa(event) {
@@ -70,6 +72,32 @@ function salvaLista() {
 }
 
 botaoSalvar.addEventListener('click', salvaLista);
+
+// Requisito 13 - Método encontrado na documentação Mozilla e implementada com a ajuda do Imar Mendes
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/before
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/after
+function moverParaCima() {
+  const listaFilhos = listaTarefas.childNodes;
+  for (let i = 1; i < listaFilhos.length; i += 1) {
+    if (listaFilhos[i].classList.contains('selecionado')) {
+      listaFilhos[i].after(listaFilhos[i - 1]);
+    }
+  }
+}
+
+botaoCima.addEventListener('click', moverParaCima);
+
+function moverParaBaixo() {
+  const listaFilhos = listaTarefas.childNodes;
+  for (let i = 0; i < listaFilhos.length - 1; i += 1) {
+    if (listaFilhos[i].classList.contains('selecionado')) {
+      listaFilhos[i].before(listaFilhos[i + 1]);
+      return;
+    }
+  }
+}
+
+botaoBaixo.addEventListener('click', moverParaBaixo);
 
 // Reqisito 14
 function apagaSelecionado() {
