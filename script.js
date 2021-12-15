@@ -14,12 +14,24 @@ function selecionaTarefa(event) {
   evento.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
+// Requisito 9
+function addRiscaTarefa(event) {
+  const risca = event.target;
+  const item = document.querySelector('.selecionado');
+  if (item.classList.contains('completed')) {
+    risca.classList.remove('completed');
+  } else if (!item.classList.contains('completed')) {
+    risca.classList.add('completed');
+  }
+}
+
 // Requisito 5
 function criaTarefa() {
   const tarefaItem = document.createElement('li');
   tarefaItem.className = 'item-tarefa';
   tarefaItem.innerText = textoTarefa.value;
   tarefaItem.addEventListener('click', selecionaTarefa);
+  tarefaItem.addEventListener('dblclick', addRiscaTarefa);
   listaTarefas.appendChild(tarefaItem);
   textoTarefa.value = '';
 }
