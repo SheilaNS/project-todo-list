@@ -1,7 +1,8 @@
-const listaTarefas = document.getElementById('lista-tarefas');
+const listaTarefas = document.getElementById('lista-tarefas'); // ul
 const botaoCriar = document.getElementById('criar-tarefa');
 const textoTarefa = document.getElementById('texto-tarefa');
 const itemLista = document.getElementsByClassName('item-tarefa');
+const botaoApagaTudo = document.getElementById('apaga-tudo');
 
 // Requisito 7 e 8: Ajuda obtida com o Guilherme Azevedo
 function selecionaTarefa(event) {
@@ -37,3 +38,13 @@ function criaTarefa() {
 }
 
 botaoCriar.addEventListener('click', criaTarefa);
+
+function apagaLista() {
+  for (let i = listaTarefas.childNodes.length; i > 0; i -= 1) {
+    if (listaTarefas.childNodes) {
+      listaTarefas.removeChild(listaTarefas.firstChild);
+    }
+  }
+}
+
+botaoApagaTudo.addEventListener('click', apagaLista);
