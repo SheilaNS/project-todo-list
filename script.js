@@ -66,12 +66,21 @@ function apagaCompletos() {
 
 botaoApagaFinalizados.addEventListener('click', apagaCompletos);
 
-// Requisito 12
+// Requisito 12 - Ajuda obitida com o Thiago Zardo
 function salvaLista() {
-  sessionStorage.setItem(itemLista, itemLista.innerText);
+  localStorage.setItem('itemLista', listaTarefas.innerHTML);
+  // console.log(localStorage.getItem('itemLista'));
 }
 
 botaoSalvar.addEventListener('click', salvaLista);
+
+window.onload = function carregaLista() {
+  listaTarefas.innerHTML = localStorage.getItem('itemLista');
+  for (let i = 0; i < itemLista.length; i += 1) {
+    itemLista[i].addEventListener('click', selecionaTarefa);
+    itemLista[i].addEventListener('dblclick', addRiscaTarefa);
+  }
+};
 
 // Requisito 13 - Método encontrado na documentação Mozilla e implementada com a ajuda do Imar Mendes
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/before
