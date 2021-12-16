@@ -1,3 +1,17 @@
+body {
+  background-image: url('/cortica3.jpg');
+  text-align: center;
+}
+
+button {
+  height: 25px;
+  border-radius: 10px;
+  border-style: none;
+  margin: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 .completed {
   text-decoration: line-through solid black;
 }
@@ -7,5 +21,69 @@
 }
 
 .item-tarefa {
-  background-color: white;
+  background-color: turquoise;
+}
+
+.lista {
+  background-image: url('/blank-post-it-note-3.png');
+  background-size: cover;
+  height: 400px;
+  width: 400px;
+  padding: 20px;
+  margin: 10px auto;
+}
+
+ol {
+  margin-left: 80px;
+  padding-top: 60px;
+  text-align: left;
+}
+
+li {
+  width: 78%;
+}
+
+input {
+  border-style: dashed;
+  border-radius: 5px;
+  border-color: steelblue;
+  height: 20px;
+  text-align: center;  
+}
+
+input[type=text]:focus {
+  outline: none;
+}
+
+header {
+  background-color: rgba(255, 255, 255, 0.801);
+  border-radius: 20px;
+  margin: 20px;
+  padding-bottom: 35px;
+  padding-top: 5px;
+}
+
+#criar-tarefa {
+  background-color: yellow;
+}
+
+#mover-cima, #mover-baixo {
+  background-color: blue;
+  color: white;
+}
+
+#remover-selecionado {
+  background-color: deeppink;
+}
+
+#apaga-tudo {
+  background-color: orangered;
+}
+
+#remover-finalizados {
+  background-color: aqua;
+}
+
+#salvar-tarefas {
+  background-color: lime;
 }

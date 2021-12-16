@@ -14,7 +14,7 @@ const botaoBaixo = document.getElementById('mover-baixo');
 function selecionaTarefa(event) {
   for (let i = 0; i < itemLista.length; i += 1) {
     itemLista[i].classList.remove('selecionado');
-    itemLista[i].style.backgroundColor = 'white';
+    itemLista[i].style.backgroundColor = 'turquoise';
   }
   const evento = event.target;
   evento.classList.add('selecionado');
