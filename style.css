@@ -1,5 +1,5 @@
 body {
-  background-image: url('/cortica3.jpg');
+  background-image: url('cortica3.jpg');
   text-align: center;
   font-family: Arima Madurai, cursive;
 }
@@ -28,7 +28,7 @@ button {
 }
 
 .lista {
-  background-image: url('/blank-post-it-note-3.png');
+  background-image: url('blank-post-it-note-3.png');
   background-size: cover;
   height: 400px;
   width: 400px;
